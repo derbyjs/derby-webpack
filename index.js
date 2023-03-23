@@ -12,6 +12,12 @@ function derbyWebpack(apps, rootDir) {
     serverSideRender: true,
     index: false,
     publicPath: resolvedConfig.output.publicPath,
+    headers: (req, res, context) => {
+      const origin = req.headers['origin'];
+      if (!origin) return;
+      res.setHeader('Access-Control-Allow-Origin', origin);
+      res.setHeader('X-Derby-Webpack', 1);
+    }
   });
 
   return {
