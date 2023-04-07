@@ -57,9 +57,8 @@ module.exports = function(webpack, apps, rootDir, opts = {}) {
       path: path.resolve(rootDir, './public/derby'),
       publicPath: '/derby/',
     },
-    devtool: options.hotModuleReplacement
-      ? 'eval-source-map'
-      : 'source-map',
+    // @TODO: evaluate other options for performance/precision for dev and static build
+    devtool: 'source-map',
     module: {
       rules: [],
     },
