@@ -13,7 +13,7 @@ exports.createWebpackCompiler = function getMiddleware(webpackConfig) {
   const devMiddleware = webpackMiddleware(webpackCompiler, {
     serverSideRender: true,
     index: false,
-    publicPath: resolvedConfig.output.publicPath,
+    publicPath: webpackConfig.output.publicPath,
     headers: (req, res, _context) => {
       const origin = req.headers['origin'];
       if (!origin) return;
