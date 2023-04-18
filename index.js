@@ -7,7 +7,7 @@ const webpackHotMiddleware = require("webpack-hot-middleware");
  *
  * @param {webpack.Configuration} webpackConfig
  */
-exports.createWebpackCompiler = function getMiddleware(webpackConfig) {
+exports.createMiddleware = function createMiddleware(webpackConfig) {
   const webpackCompiler = webpack(webpackConfig);
 
   const devMiddleware = webpackMiddleware(webpackCompiler, {
